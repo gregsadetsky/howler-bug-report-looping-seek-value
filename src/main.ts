@@ -25,20 +25,26 @@ function startMonitoringSeekPosition() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  setInterval(startMonitoringSeekPosition, 1);
+
   document.querySelector("#playButton")!.addEventListener("click", () => {
-    sound = new Howl({
-      src: ["./sound.wav"],
-      autoplay: true,
-      loop: true,
-      volume: 0.5,
-      onload: function () {
-        document.querySelector<HTMLDivElement>(
-          "#duration"
-        )!.innerHTML = `Duration: ${sound!.duration()}s`;
-        setInterval(startMonitoringSeekPosition, 1);
-      },
-    });
+    if (sound) {
+      sound.play();
+    } else {
+      sound = new Howl({
+        src: ["./sound.wav"],
+        autoplay: true,
+        loop: true,
+        volume: 0.5,
+        onload: function () {
+          document.querySelector<HTMLDivElement>(
+            "#duration"
+          )!.innerHTML = `Duration: ${sound!.duration()}s`;
+        },
+      });
+    }
   });
+
   document.querySelector("#stopButton")!.addEventListener("click", () => {
     if (sound) {
       sound.stop();
