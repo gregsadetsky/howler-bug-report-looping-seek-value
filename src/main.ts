@@ -29,8 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector("#playButton")!.addEventListener("click", () => {
     if (sound) {
-      sound.play();
+      if (!sound.playing()) {
+        sound.play();
+      }
     } else {
+      console.log("creating new");
       sound = new Howl({
         src: ["./sound.wav"],
         autoplay: true,
