@@ -1,4 +1,4 @@
-# Howler bug report
+# Howler bug report - minimal reproducible example
 
 **"When looping, playback position value is sometimes beyond the audio file's duration"**
 
