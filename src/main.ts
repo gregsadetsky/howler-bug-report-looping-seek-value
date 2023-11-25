@@ -2,7 +2,7 @@ import { Howl } from "howler";
 
 // sample rate of the example file
 let SAMPLE_RATE = 48000;
-let sound = null;
+let sound: Howl | null = null;
 
 function startMonitoringSeekPosition() {
   if (!sound) {
@@ -18,7 +18,7 @@ function startMonitoringSeekPosition() {
   if (seekPosition > sound.duration()) {
     document.querySelector(
       "#seeks-beyond-duration"
-    ).innerHTML += `Beyond duration: ${seekPosition}s - delta: ${
+    )!.innerHTML += `Beyond duration: ${seekPosition}s - delta: ${
       (seekPosition - sound.duration()) * SAMPLE_RATE
     } samples<br>`;
   }
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
       onload: function () {
         document.querySelector<HTMLDivElement>(
           "#duration"
-        )!.innerHTML = `Duration: ${sound.duration()}s`;
+        )!.innerHTML = `Duration: ${sound!.duration()}s`;
         setInterval(startMonitoringSeekPosition, 1);
       },
     });
