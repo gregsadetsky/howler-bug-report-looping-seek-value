@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Howler bug report</title>
+    <style>
+      body { 
+        line-height: 1.4;
+        font-size: 16px;
+        padding: 0 10px;
+        margin: 50px auto;
+        max-width: 650px;
+      }
+
+      #maincontent {
+        max-width:42em;margin:15 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="playButton">Play sound in a loop</button>
+    <button id="stopButton" style='margin-bottom:20px;'>Stop</button>
+    <div id='duration'></div>
+    <div id='seek-position'></div>
+    <div id='seeks-beyond-duration'></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
