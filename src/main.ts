@@ -27,7 +27,7 @@ function startMonitoringSeekPosition() {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#playButton")!.addEventListener("click", () => {
     sound = new Howl({
-      src: ["/sound.wav"],
+      src: ["./sound.wav"],
       autoplay: true,
       loop: true,
       volume: 0.5,
