@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
         sound.play();
       }
     } else {
-      console.log("creating new");
       sound = new Howl({
         src: ["./sound.wav"],
         autoplay: true,
